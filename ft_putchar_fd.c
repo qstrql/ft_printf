@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjouot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 15:42:09 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/06 18:40:53 by mjouot           ###   ########.fr       */
+/*   Created: 2022/09/26 18:40:20 by mjouot            #+#    #+#             */
+/*   Updated: 2022/09/29 16:07:20 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdarg.h>
+#include <unistd.h>
 
-int ft_printf(const char *str, ...)
+void	ft_putchar_fd(char c, int fd)
 {
-	va_list args;
-
-	va_start(args, str);
-	ft_check_str(str, va_list);
-	va_end(args);
-	return ;
+	write(fd, &c, 1);
 }
