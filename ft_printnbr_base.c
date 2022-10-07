@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_printnbr_base.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:14:13 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 20:51:30 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 21:10:34 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ static int	ft_getcount(int n)
 	return (i);
 }
 
-static void	ft_putnbr_base(unsigned int n, const char *base)
+static void	ft_putnbr_base(int n, const char *base)
 {
-	int	i;
 	int	last_n;
 
 	if (n == 0)
@@ -44,15 +43,13 @@ static void	ft_putnbr_base(unsigned int n, const char *base)
 	{
 		last_n = n % ft_strlen(base);
 		n = n / ft_strlen(base);
-		if (n < 0)
-			n *= -1;
 		if (n != 0)
 			ft_putnbr_base(n, base);
 		ft_putchar(base[last_n]);
 	}
 }
 
-int	ft_printnbr_base(unsigned int n, const char *base)
+int	ft_printnbr_base(int n, const char *base)
 {
 	int	count;
 

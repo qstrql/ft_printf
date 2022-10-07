@@ -6,7 +6,7 @@
 #    By: mjouot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 16:46:46 by mjouot            #+#    #+#              #
-#    Updated: 2022/10/07 15:05:51 by mjouot           ###   ########.fr        #
+#    Updated: 2022/10/07 21:07:40 by mjouot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libftprintf.a
@@ -14,9 +14,9 @@ NAME = libftprintf.a
 SRCS = ft_check_str.c \
 	   ft_printf.c \
 	   ft_putchar.c \
-	   ft_putnbr.c \
+	   ft_printnbr.c \
 	   ft_putstr.c \
-	   ft_putnbr_base.c \
+	   ft_printnbr_base.c \
 	   ft_strlen.c 
 
 CC = gcc
