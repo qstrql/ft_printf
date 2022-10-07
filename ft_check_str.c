@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 21:15:34 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 22:18:50 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ int	ft_check_str(const char *str, va_list args)
 			i++;
 		}
 		else
+		{
 			write(1, &str[i], 1);
+			count++;
+		}
 		i++;
 	}
 	return (count);
