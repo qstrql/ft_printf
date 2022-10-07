@@ -6,11 +6,11 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:40:55 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 19:21:57 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 00:26:54 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <stddef.h>
 
 int	ft_strlen(const char *str)

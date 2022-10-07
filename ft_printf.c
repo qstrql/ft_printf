@@ -6,11 +6,11 @@
 /*   By: mjouot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:42:09 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 22:29:05 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 00:26:07 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <stdarg.h>
 
 int	ft_printf(const char *str, ...)
@@ -23,10 +23,10 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	count = ft_check_str(str, args);
 	va_end(args);
-	printf("count : %d count\n\n", count);
+//	printf("count : %d count\n\n", count);
 	return (count);
 }
-
+/*
 int	main(void)
 {
 	int d = 125;
@@ -38,5 +38,5 @@ int	main(void)
 	int	X = 23;
 	ft_printf("d : %d\nc : %c\ns : %s\ni : %i\nu : %u\no : %o\nx : %x\nX : %X\n% : %%\n", d, c, s, i, u, x, X);
 	ft_printf("salut comment ca va la zone?\n");
-	ft_printf("t'as %d ans\n", d);
-}
+	ft_printf("francis a %d ans\n", d);
+}*/

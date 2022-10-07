@@ -6,11 +6,11 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:40:44 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 20:36:21 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 00:26:49 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 int	ft_putstr(const char *s)

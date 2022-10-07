@@ -6,11 +6,11 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:14:13 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 21:10:34 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 00:26:36 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 static int	ft_getcount(int n)

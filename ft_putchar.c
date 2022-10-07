@@ -6,11 +6,11 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:40:20 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 19:23:27 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 00:26:43 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 void	ft_putchar(const char c)
