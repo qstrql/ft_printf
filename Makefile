@@ -6,12 +6,18 @@
 #    By: mjouot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 16:46:46 by mjouot            #+#    #+#              #
-#    Updated: 2022/10/05 17:23:21 by mjouot           ###   ########.fr        #
+#    Updated: 2022/10/07 15:05:51 by mjouot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libftprintf.a
 
-SRCS = 
+SRCS = ft_check_str.c \
+	   ft_printf.c \
+	   ft_putchar.c \
+	   ft_putnbr.c \
+	   ft_putstr.c \
+	   ft_putnbr_base.c \
+	   ft_strlen.c 
 
 CC = gcc
 OBJS = $(SRCS:.c=.o)
@@ -34,5 +40,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
 
