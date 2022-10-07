@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 19:23:08 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 20:48:15 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 
 int	ft_conversion(char c, va_list args)
 {
-	int count;
+	int	count;
 
-	count = 0;
 	if (c == 'c')
 	{
 		ft_putchar(va_arg(args, int));
@@ -32,12 +31,12 @@ int	ft_conversion(char c, va_list args)
 	}
 	if (c == 'd' || c == 'i')
 	{
-		count = ft_putnbr(va_arg(args, int));
+		count = ft_printnbr(va_arg(args, int));
 		return (count);
 	}
 	if (c == 'u')
 	{
-		count = ft_putnbr(va_arg(args, int));
+		count = ft_printnbr(va_arg(args, int));
 		return (count);
 	}
 	if (c != 'p' && c != 'x' && c != 'X' && c != '%')
@@ -45,13 +44,12 @@ int	ft_conversion(char c, va_list args)
 	return (1);
 }
 
-int ft_conversion_hexa(char c, va_list args)
+int	ft_conversion_hexa(char c, va_list args)
 {
-	int		count;
+	int			count;
 	const char	*hexa_lower = "0123456789abcdef";
 	const char	*hexa_upper = "0123456789ABCDEF";
 
-	count = 0;
 /*	if (c == 'p')
 	{
 		count = ;
@@ -59,12 +57,12 @@ int ft_conversion_hexa(char c, va_list args)
 	}*/
 	if (c == 'x')
 	{
-		count = ft_putnbr_base(va_arg(args, int), hexa_lower);
+		count = ft_printnbr_base(va_arg(args, int), hexa_lower);
 		return (count);
 	}
 	if (c == 'X')
 	{
-		count = ft_putnbr_base(va_arg(args, int), hexa_upper);
+		count = ft_printnbr_base(va_arg(args, int), hexa_upper);
 		return (count);
 	}
 	if (c == '%')
@@ -79,7 +77,7 @@ int	ft_check_str(const char *str, va_list args)
 {
 	int	i;
 	int	count;
-	
+
 	i = 0;
 	count = 0;
 	while (str[i] != '\0')
