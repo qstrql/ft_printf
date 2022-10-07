@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 00:27:02 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 00:36:39 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int	ft_conversion_hexa(char c, va_list args)
 	const char	*hexa_lower = "0123456789abcdef";
 	const char	*hexa_upper = "0123456789ABCDEF";
 
-/*	if (c == 'p')
+	if (c == 'p')
 	{
-		count = ;
+		count = ft_printnbr_base(va_arg(args, unsigned int);
 		return (count);
-	}*/
+	}
 	if (c == 'x')
 	{
 		count = ft_printnbr_base(va_arg(args, int), hexa_lower);
