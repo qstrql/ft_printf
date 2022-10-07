@@ -6,11 +6,11 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 14:41:25 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 19:23:08 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>

@@ -6,11 +6,11 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:14:13 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 13:39:00 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 19:23:40 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 #include <unistd.h>
 
 int	ft_putnbr_base(unsigned int nbr, const char *base)

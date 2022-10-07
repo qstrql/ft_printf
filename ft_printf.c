@@ -6,11 +6,11 @@
 /*   By: mjouot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:42:09 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 14:16:14 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 19:23:21 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 #include <stdarg.h>
 
 int ft_printf(const char *str, ...)
