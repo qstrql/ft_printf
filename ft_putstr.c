@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 11:40:55 by mjouot            #+#    #+#             */
-/*   Updated: 2022/09/29 12:09:35 by mjouot           ###   ########.fr       */
+/*   Created: 2022/09/26 18:40:44 by mjouot            #+#    #+#             */
+/*   Updated: 2022/10/07 12:54:56 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "ft_printf.h"
+#include <unistd.h>
 
-size_t	ft_strlen(const char *str)
+int	ft_putstr(const char *s)
 {
-	size_t	i;
+	int i;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
+	if (s != 0)
+		while (s[i] != '\0')
+			i++;
+	write(1, s, i);
 	return (i);
 }
