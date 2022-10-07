@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:41:11 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 20:49:03 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 21:04:15 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_printnbr(int n)
 {
 	int	count;
 
-	count = ft_getcount;
+	count = ft_getcount(n);
 	ft_putnbr(n);
 	return (count);
 }

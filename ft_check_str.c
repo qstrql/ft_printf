@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/07 20:48:15 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/07 20:57:21 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,22 @@ int	ft_conversion(char c, va_list args)
 		ft_putchar(va_arg(args, int));
 		return (1);
 	}
-	if (c == 's')
+	else if (c == 's')
 	{
 		count = ft_putstr(va_arg(args, char *));
 		return (count);
 	}
-	if (c == 'd' || c == 'i')
+	else if (c == 'd' || c == 'i')
 	{
 		count = ft_printnbr(va_arg(args, int));
 		return (count);
 	}
-	if (c == 'u')
+	else if (c == 'u')
 	{
 		count = ft_printnbr(va_arg(args, int));
 		return (count);
 	}
-	if (c != 'p' && c != 'x' && c != 'X' && c != '%')
+	else if (c != 'p' && c != 'x' && c != 'X' && c != '%')
 		ft_putchar(c);
 	return (1);
 }
@@ -60,12 +60,12 @@ int	ft_conversion_hexa(char c, va_list args)
 		count = ft_printnbr_base(va_arg(args, int), hexa_lower);
 		return (count);
 	}
-	if (c == 'X')
+	else if (c == 'X')
 	{
 		count = ft_printnbr_base(va_arg(args, int), hexa_upper);
 		return (count);
 	}
-	if (c == '%')
+	else if (c == '%')
 	{
 		ft_putchar('%');
 		return (1);
