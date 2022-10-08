@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:41:11 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 18:19:05 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 20:08:41 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,20 @@ static int	ft_getcount(long n, char c)
 			n /= 10;
 			i++;
 		}
+		return (i);
 	}
-	else if (c == 'u')
+	n = (unsigned int)n;
+	if (n == 0)
+		return (1);
+	while (n != 0)
 	{
-		n = (unsigned int)n;
-		if (n == 0)
-			return (1);
-		while (n != 0)
-		{
-			n /= 10;
-			i++;
-		}
+		n /= 10;
+		i++;
 	}
 	return (i);
 }
 
-static void ft_usign_putnbr(unsigned int n)
+static void	ft_usign_putnbr(unsigned int n)
 {
 	if (n >= 10)
 	{

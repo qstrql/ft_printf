@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 19:40:24 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 20:04:17 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#include <stdio.h>
 int	ft_conversion(char c, va_list args)
 {
 	int	count;
@@ -41,13 +40,13 @@ int	ft_conversion_hexa(char c, va_list args)
 	else if (c == 'x')
 		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_lower, c);
 	else if (c == 'X')
-		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_upper, c);	
+		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_upper, c);
 	else if (c == '%')
 		return (ft_putchar('%'));
 	return (count);
 }
 
-static int ft_conversion_count(char c, va_list args)
+static int	ft_conversion_count(char c, va_list args)
 {
 	int	count;
 
@@ -66,9 +65,9 @@ static int ft_conversion_count(char c, va_list args)
 
 int	ft_check_str(const char *str, va_list args)
 {
-	int	i;
-	int	count;
-	char c;
+	int		i;
+	int		count;
+	char	c;
 
 	i = 0;
 	count = 0;

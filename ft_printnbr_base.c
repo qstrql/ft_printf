@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:37:09 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 19:40:37 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 20:02:46 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	ft_getcount_hexa(unsigned long n)
 	return (i);
 }
 
-static void ft_usign_putnbr_base(unsigned int n, const char *base)
+static void	ft_usign_putnbr_base(unsigned int n, const char *base)
 {
- 	unsigned int	last_n;
+	unsigned int	last_n;
 
 	if (n == 0)
 		ft_putchar(base[0]);
@@ -44,9 +44,9 @@ static void ft_usign_putnbr_base(unsigned int n, const char *base)
 	}
 }
 
-static void ft_long_putnbr_base(unsigned long n, const char *base)
+static void	ft_long_putnbr_base(unsigned long n, const char *base)
 {
-	int last_n;
+	int	last_n;
 
 	if (n == 0)
 		ft_putchar(base[0]);
@@ -60,9 +60,9 @@ static void ft_long_putnbr_base(unsigned long n, const char *base)
 	}
 }
 
-int ft_printnbr_base(unsigned long n, const char *base, char c)
+int	ft_printnbr_base(unsigned long n, const char *base, char c)
 {
-	int count;
+	int	count;
 
 	count = ft_getcount_hexa(n);
 	if (c == 'x' || c == 'X')

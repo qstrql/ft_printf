@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:44:22 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 19:12:38 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 19:59:39 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	ft_strlen(const char *str);
 int	ft_putchar(const char c);
 int	ft_putstr(const char *s);
 int	ft_printnbr(int n, char c);
-int ft_printnbr_base(unsigned long n, const char *base, char c);
+int	ft_printnbr_base(unsigned long n, const char *base, char c);
 
 #endif
