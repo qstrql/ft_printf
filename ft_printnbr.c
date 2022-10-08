@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:41:11 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 00:26:13 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 15:31:56 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,25 @@ static void	ft_putnbr(int n)
 	}
 }
 
+static void ft_usign_putnbr(unsigned int n)
+{
+	if (n >= 10)
+	{
+		ft_usign_putnbr(n / 10);
+		ft_usign_putnbr(n % 10);
+	}
+	else
+	{
+		n += '0';
+		write(1, &n, 1);
+	}
+}
+
 int	ft_printnbr(int n)
 {
 	int	count;
 
 	count = ft_getcount(n);
-	ft_putnbr(n);
+		ft_putnbr(n);
 	return (count);
 }

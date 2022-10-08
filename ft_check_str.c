@@ -6,13 +6,12 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 00:36:39 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 15:16:49 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
-#include <stddef.h>
 #include <unistd.h>
 
 int	ft_conversion(char c, va_list args)
@@ -20,10 +19,7 @@ int	ft_conversion(char c, va_list args)
 	int	count;
 
 	if (c == 'c')
-	{
-		ft_putchar(va_arg(args, int));
-		return (1);
-	}
+		return (ft_putchar(va_arg(args, int)));
 	else if (c == 's')
 	{
 		count = ft_putstr(va_arg(args, char *));
@@ -31,16 +27,14 @@ int	ft_conversion(char c, va_list args)
 	}
 	else if (c == 'd' || c == 'i')
 	{
-		count = ft_printnbr(va_arg(args, int));
+		count = ft_printnbr(va_arg(args, int), c);
 		return (count);
 	}
 	else if (c == 'u')
 	{
-		count = ft_printnbr(va_arg(args, int));
+		count = ft_printnbr(va_arg(args, unsigned int), c);
 		return (count);
 	}
-	else if (c != 'p' && c != 'x' && c != 'X' && c != '%')
-		ft_putchar(c);
 	return (1);
 }
 
@@ -52,31 +46,30 @@ int	ft_conversion_hexa(char c, va_list args)
 
 	if (c == 'p')
 	{
-		count = ft_printnbr_base(va_arg(args, unsigned int);
+		write(1, "0x", 2);
+		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_lower, c);
 		return (count);
 	}
-	if (c == 'x')
+	else if (c == 'x')
 	{
-		count = ft_printnbr_base(va_arg(args, int), hexa_lower);
+		count = ft_printnbr_base(va_arg(args, int), hexa_lower, c);
 		return (count);
 	}
 	else if (c == 'X')
 	{
-		count = ft_printnbr_base(va_arg(args, int), hexa_upper);
+		count = ft_printnbr_base(va_arg(args, int), hexa_upper, c);
 		return (count);
 	}
 	else if (c == '%')
-	{
-		ft_putchar('%');
-		return (1);
-	}
-	return (0);
+		return (ft_putchar('%'));
+	return (1);
 }
 
 int	ft_check_str(const char *str, va_list args)
 {
 	int	i;
 	int	count;
+	char c;
 
 	i = 0;
 	count = 0;
@@ -84,8 +77,11 @@ int	ft_check_str(const char *str, va_list args)
 	{
 		if (str[i] == '%')
 		{
-			count += ft_conversion(str[i + 1], args);
-			count += ft_conversion_hexa(str[i + 1], args);
+			c = str[i + 1];
+			if (c != 'p' && c != 'x' && c != 'X' && c != '%')
+				count += ft_conversion(c, args);
+			else if (c != 'c' && c != 's' && c != 'd' && c != 'i' && c != 'u')
+				count += ft_conversion_hexa(c, args);
 			i++;
 		}
 		else
