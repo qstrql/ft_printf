@@ -6,7 +6,7 @@
 #    By: mjouot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 16:46:46 by mjouot            #+#    #+#              #
-#    Updated: 2022/10/07 21:07:40 by mjouot           ###   ########.fr        #
+#    Updated: 2022/10/08 19:25:42 by mjouot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libftprintf.a
@@ -15,7 +15,7 @@ SRCS = ft_check_str.c \
 	   ft_printf.c \
 	   ft_utilities.c \
 	   ft_printnbr.c \
-	   ft_printnbr_base.c \
+	   ft_printnbr_base.c
 
 CC = gcc
 OBJS = $(SRCS:.c=.o)

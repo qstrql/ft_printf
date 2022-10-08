@@ -6,32 +6,64 @@
 /*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:41:11 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 15:31:56 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 18:19:05 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-static int	ft_getcount(int n)
+static int	ft_getcount(long n, char c)
 {
 	int		i;
 
 	i = 0;
-	if (n <= 0)
-		i++;
-	while (n != 0)
+	if (c == 'i' || c == 'd')
 	{
-		n /= 10;
-		i++;
+		n = (int)n;
+		if (n <= 0)
+			i++;
+		while (n != 0)
+		{
+			n /= 10;
+			i++;
+		}
+	}
+	else if (c == 'u')
+	{
+		n = (unsigned int)n;
+		if (n == 0)
+			return (1);
+		while (n != 0)
+		{
+			n /= 10;
+			i++;
+		}
 	}
 	return (i);
+}
+
+static void ft_usign_putnbr(unsigned int n)
+{
+	if (n >= 10)
+	{
+		ft_usign_putnbr(n / 10);
+		ft_usign_putnbr(n % 10);
+	}
+	else
+	{
+		n += '0';
+		write(1, &n, 1);
+	}
 }
 
 static void	ft_putnbr(int n)
 {
 	if (n == -2147483648)
+	{
 		write(1, "-2147483648", 11);
+		return ;
+	}
 	if (n < 0)
 	{
 		write(1, "-", 1);
@@ -49,25 +81,19 @@ static void	ft_putnbr(int n)
 	}
 }
 
-static void ft_usign_putnbr(unsigned int n)
-{
-	if (n >= 10)
-	{
-		ft_usign_putnbr(n / 10);
-		ft_usign_putnbr(n % 10);
-	}
-	else
-	{
-		n += '0';
-		write(1, &n, 1);
-	}
-}
-
-int	ft_printnbr(int n)
+int	ft_printnbr(int n, char c)
 {
 	int	count;
 
-	count = ft_getcount(n);
+	if (c == 'i' || c == 'd')
+	{
 		ft_putnbr(n);
+		count = ft_getcount(n, c);
+	}
+	else if (c == 'u')
+	{
+		ft_usign_putnbr(n);
+		count = ft_getcount(n, c);
+	}
 	return (count);
 }

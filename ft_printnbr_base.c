@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printnbr_base.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjouot <mjouot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 17:14:13 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 15:31:38 by mjouot           ###   ########.fr       */
+/*   Created: 2022/10/08 15:37:09 by mjouot            #+#    #+#             */
+/*   Updated: 2022/10/08 19:40:37 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-static int	ft_getcount(int n)
+static int	ft_getcount_hexa(unsigned long n)
 {
 	int		i;
 
@@ -22,31 +22,10 @@ static int	ft_getcount(int n)
 		i++;
 	while (n != 0)
 	{
-		n /= 10;
+		n /= 16;
 		i++;
 	}
 	return (i);
-}
-
-static void	ft_putnbr_base(int n, const char *base)
-{
-	int	last_n;
-
-	if (n == 0)
-		ft_putchar(base[0]);
-	if (n < 0)
-	{
-		n *= -1;
-		write(1, "-", 1);
-	}
-	if (n != 0)
-	{
-		last_n = n % ft_strlen(base);
-		n = n / ft_strlen(base);
-		if (n != 0)
-			ft_putnbr_base(n, base);
-		ft_putchar(base[last_n]);
-	}
 }
 
 static void ft_usign_putnbr_base(unsigned int n, const char *base)
@@ -60,17 +39,44 @@ static void ft_usign_putnbr_base(unsigned int n, const char *base)
 		last_n = n % ft_strlen(base);
 		n = n / ft_strlen(base);
 		if (n != 0)
-			ft_putnbr_base(n, base);
+			ft_usign_putnbr_base(n, base);
 		ft_putchar(base[last_n]);
 	}
-}	
-
-int	ft_printnbr_base(int n, const char *base)
-{
-	int	count;
-
-	count = ft_getcount(n);
-	ft_putnbr_base(n, base);
-	return (count);
 }
 
+static void ft_long_putnbr_base(unsigned long n, const char *base)
+{
+	int last_n;
+
+	if (n == 0)
+		ft_putchar(base[0]);
+	if (n != 0)
+	{
+		last_n = n % ft_strlen(base);
+		n = n / ft_strlen(base);
+		if (n != 0)
+			ft_long_putnbr_base(n, base);
+		ft_putchar(base[last_n]);
+	}
+}
+
+int ft_printnbr_base(unsigned long n, const char *base, char c)
+{
+	int count;
+
+	count = ft_getcount_hexa(n);
+	if (c == 'x' || c == 'X')
+		ft_usign_putnbr_base(n, base);
+	if (c == 'p')
+	{
+		if (n == 0)
+		{
+			write(1, "(nil)", 5);
+			return (5);
+		}
+		write(1, "0x", 2);
+		count += 2;
+		ft_long_putnbr_base(n, base);
+	}
+	return (count);
+}

@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:29:48 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 15:16:49 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/08 19:40:24 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+#include <stdio.h>
 int	ft_conversion(char c, va_list args)
 {
 	int	count;
@@ -21,21 +22,12 @@ int	ft_conversion(char c, va_list args)
 	if (c == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (c == 's')
-	{
 		count = ft_putstr(va_arg(args, char *));
-		return (count);
-	}
 	else if (c == 'd' || c == 'i')
-	{
 		count = ft_printnbr(va_arg(args, int), c);
-		return (count);
-	}
 	else if (c == 'u')
-	{
 		count = ft_printnbr(va_arg(args, unsigned int), c);
-		return (count);
-	}
-	return (1);
+	return (count);
 }
 
 int	ft_conversion_hexa(char c, va_list args)
@@ -45,24 +37,31 @@ int	ft_conversion_hexa(char c, va_list args)
 	const char	*hexa_upper = "0123456789ABCDEF";
 
 	if (c == 'p')
-	{
-		write(1, "0x", 2);
-		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_lower, c);
-		return (count);
-	}
+		count = ft_printnbr_base(va_arg(args, unsigned long), hexa_lower, c);
 	else if (c == 'x')
-	{
-		count = ft_printnbr_base(va_arg(args, int), hexa_lower, c);
-		return (count);
-	}
+		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_lower, c);
 	else if (c == 'X')
-	{
-		count = ft_printnbr_base(va_arg(args, int), hexa_upper, c);
-		return (count);
-	}
+		count = ft_printnbr_base(va_arg(args, unsigned int), hexa_upper, c);	
 	else if (c == '%')
 		return (ft_putchar('%'));
-	return (1);
+	return (count);
+}
+
+static int ft_conversion_count(char c, va_list args)
+{
+	int	count;
+
+	count = 0;
+	if (c == 'c' || c == 's' || c == 'd' || c == 'i' || c == 'u')
+		count += ft_conversion(c, args);
+	else if (c == 'p' || c == 'x' || c == 'X' || c == '%')
+		count += ft_conversion_hexa(c, args);
+	else
+	{
+		ft_putchar('%');
+		ft_putchar(c);
+	}
+	return (count);
 }
 
 int	ft_check_str(const char *str, va_list args)
@@ -78,10 +77,7 @@ int	ft_check_str(const char *str, va_list args)
 		if (str[i] == '%')
 		{
 			c = str[i + 1];
-			if (c != 'p' && c != 'x' && c != 'X' && c != '%')
-				count += ft_conversion(c, args);
-			else if (c != 'c' && c != 's' && c != 'd' && c != 'i' && c != 'u')
-				count += ft_conversion_hexa(c, args);
+			count += ft_conversion_count(c, args);
 			i++;
 		}
 		else
