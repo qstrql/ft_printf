@@ -17,7 +17,7 @@
 
 int	ft_printf(const char *str, ...);
 int	ft_check_str(const char *str, va_list args);
-int	ft_strlen(const char *str);
+int	ft_strlen_printf(const char *str);
 int	ft_putchar(const char c);
 int	ft_putstr(const char *s);
 int	ft_printnbr(int n, char c);

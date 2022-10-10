@@ -6,7 +6,7 @@
 /*   By: mjouot <mjouot@marvin.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:37:09 by mjouot            #+#    #+#             */
-/*   Updated: 2022/10/08 20:02:46 by mjouot           ###   ########.fr       */
+/*   Updated: 2022/10/10 12:07:47 by mjouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	ft_usign_putnbr_base(unsigned int n, const char *base)
 		ft_putchar(base[0]);
 	if (n != 0)
 	{
-		last_n = n % ft_strlen(base);
-		n = n / ft_strlen(base);
+		last_n = n % ft_strlen_printf(base);
+		n = n / ft_strlen_printf(base);
 		if (n != 0)
 			ft_usign_putnbr_base(n, base);
 		ft_putchar(base[last_n]);
@@ -46,14 +46,14 @@ static void	ft_usign_putnbr_base(unsigned int n, const char *base)
 
 static void	ft_long_putnbr_base(unsigned long n, const char *base)
 {
-	int	last_n;
+	unsigned long	last_n;
 
 	if (n == 0)
 		ft_putchar(base[0]);
 	if (n != 0)
 	{
-		last_n = n % ft_strlen(base);
-		n = n / ft_strlen(base);
+		last_n = n % ft_strlen_printf(base);
+		n = n / ft_strlen_printf(base);
 		if (n != 0)
 			ft_long_putnbr_base(n, base);
 		ft_putchar(base[last_n]);

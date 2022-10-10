@@ -36,7 +36,7 @@ int	ft_putstr(const char *s)
 	return (i);
 }
 
-int	ft_strlen(const char *str)
+int	ft_strlen_printf(const char *str)
 {
 	int	i;
 
