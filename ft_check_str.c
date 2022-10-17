@@ -14,7 +14,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int	ft_conversion(char c, va_list args)
+static int	ft_conversion(char c, va_list args)
 {
 	int	count;
 
@@ -29,7 +29,7 @@ int	ft_conversion(char c, va_list args)
 	return (count);
 }
 
-int	ft_conversion_hexa(char c, va_list args)
+static int	ft_conversion_hexa(char c, va_list args)
 {
 	int			count;
 	const char	*hexa_lower = "0123456789abcdef";
